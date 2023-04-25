@@ -1,0 +1,35 @@
+@import "reset.scss";
+body{
+  overflow: hidden;
+  font-family: Dutch801 Rm BT,Arial,"PingFang SC","Microsoft YaHei","微软雅黑","Hiragino Sans GB",sans-serif;
+  cursor: url("@/assets/cursor.png"), auto;
+  user-select: none;
+
+  background: url("@/assets/test.jpg");
+  background-size: cover;
+
+  .interactive{
+    pointer-events: auto;
+  }
+  #app{
+    height: 100vh;
+  }
+}
+ul,li{
+  list-style: none;
+}
+@keyframes flash{
+  10%{ opacity: 1;}
+  50%{ opacity: .5;}
+  90%{ opacity: 1;}
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+
