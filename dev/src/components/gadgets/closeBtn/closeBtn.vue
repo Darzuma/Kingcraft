@@ -6,11 +6,20 @@
 export default {
     name: "closeBtn",
     emits:[ 'click' ],
+    data(){
+        return {
+            timer: null
+        }
+    },
     props:{
         size:{
             type: [ String, Number ],
             default: ''
-        }
+        },
+        instant:{
+            type: Boolean,
+            default: false
+        },
     },
     mounted() {
         if(this.size)
@@ -23,10 +32,14 @@ export default {
     },
     methods:{
         click(){
-            setTimeout(()=>{
+            this.timer = setTimeout(()=>{
                 this.$emit('click')
-            },300)
+                clearTimeout(this.timer)
+            },this.instant ? 50 : 300)
         }
+    },
+    unmounted() {
+        clearTimeout(this.timer)
     }
 }
 </script>

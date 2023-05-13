@@ -1,26 +1,30 @@
 <template>
     <router-view v-slot={Component}>
-        <keep-alive include="game">
-            <component :is="Component"/>
+        <keep-alive include="worldMap">
+            <component ref="view" :is="Component"/>
         </keep-alive>
     </router-view>
     <!--src="/unity/Kingcraft"-->
-<!--    <unity ref="unity" src="/unity/Kingcraft" style="background-color: rgba(0,0,0,.5)"-->
-<!--           @progress="progress"-->
-<!--           @messages="messages"-->
-<!--    />-->
+    <unity ref="unity" src="/unity/Kingcraft"
+           @progress="progress"
+           @messages="messages"
+           @instance="instance"
+    />
+    <globalUI/>
     <menus :valid="setting.valid"/>
     <message/>
-<!--    <loading @contextmenu="contextmenu" @clickToStart="clickToStart"/>-->
+    <loading @contextmenu="contextmenu" @clickToStart="clickToStart"/>
 </template>
 <script>
 import menus from '@/components/menus'
 import unity from '@/components/unity'
 import loading from '@/components/loading'
 import message from "@/components/message/message";
-import { setting } from '@/stores'
+import globalUI from "@/components/globalUI";
+import { setting, game } from '@/stores'
+import Cookies from "js-cookie";
 export default {
-    components:{ menus, unity, loading, message },
+    components:{ menus, unity, loading, message, globalUI },
     mounted() {
 
     },
@@ -29,17 +33,22 @@ export default {
             setting
         }
     },
-    watch:{
-
-    },
     methods:{
         progress(progress){
-            // window.loading.progress = progress
+            try{
+                window.loading.progress = progress
+            }catch (err){}
         },
         messages(name, args){
-            console.log(name)
-            console.log(args)
+            this.$refs.view.messages(name, args)
         },
+        instance(unityInstance){
+            game.dispatch = unityInstance.SendMessage
+            if(!Cookies.get('username')){
+                game.dispatch("GameManager","SetScene","Tutorial")
+                this.$router.push('/tutorial')
+            }
+        }
     }
 }
 </script>

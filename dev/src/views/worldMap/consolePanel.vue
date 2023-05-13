@@ -1,7 +1,7 @@
 <template>
     <div class="consolePanel">
         <div class="background"/>
-        <div class="avatar" :style="{ '--index': index }"/>
+        <avatar style="position: absolute;z-index: 1;left: 43px;bottom:14px;"/>
         <div class="modify" @click="bus.$refs.modification.valid = !bus.$refs.modification.valid"/>
         <div class="crystal">
             {{ hero.level * 3 }}
@@ -19,15 +19,16 @@
         <!--中间卡槽-BEGIN -->
         <div class="slot">
             <div class="tips" v-show="currentSlotCard" :style="{ '--index': currentSlotIndex }">
-                <i class="tips">Click to unequip</i>
+                <i class="tips"><i class="x">×</i> to unequip</i>
                 <i class="info">{{ currentSlotCard ? currentSlotCard.name : '' }}</i>
             </div>
-            <div v-for="(card, index) in slots"
-                class="card" :class="[ getType(card) ]"
+            <div class="card" :class="[ getType(card) ]" v-for="(card, index) in slots"
                  @mousemove="currentSlotCard = card; currentSlotIndex = index"
-                 @mouseleave="currentSlotCard = null"
-                 @click="unequip(card, index)"
+                 @mouseleave="currentSlotCard = null; currentSlotIndex = null"
             >
+                <closeBtn instant class="closeBtnFix" size="30" v-show="currentSlotIndex === index"
+                          @click="unequip(card, index)"
+                />
                 <i class="name" :class="{ fix: card.type === 0 }">{{ card.type === 0 ? 'UNITS' : card.type === 1 ? 'ATTACK' : 'SALVATION' }}</i>
 <!--                <i class="level">{{ card.level }}</i>-->
                 <cardFace class="positionFix" size=".415" :col="card.col" :row="card.row"/>
@@ -50,7 +51,7 @@
 
         <div class="repositoryTips" v-show="currentRepoCard">
             <i class="tips">{{ currentRepoCard ?
-                (currentRepoCard.valid ? 'Click to equip' : `Unlock [${currentRepoCard.requirement ? currentRepoCard.requirement : heroes[currentRepoCard.col - 2].name}] to to get this card`) : '' }}</i>
+                (currentRepoCard.valid ? currentRepoCard.equiped ? 'Click to unequip' : 'Click to equip' : `Unlock [${currentRepoCard.requirement ? currentRepoCard.requirement : heroes[currentRepoCard.col - 2].name}] to to get this card`) : '' }}</i>
             <i class="info">{{ currentRepoCard ? currentRepoCard.name : '' }}</i>
         </div>
 
@@ -59,21 +60,26 @@
                 <div class="card" :class="{ lock: !card.valid }" v-for="(card, index) in cards"
                      @mouseenter="currentRepoCard = card"
                      @mouseleave="currentRepoCard = null"
-                     @click="equip(card, index)"
+                     @click="toggle(card, index)"
                 >
+                    <i class="equiped" v-show="card.equiped">√</i>
                     <div class="ribbon" v-if="!card.valid"/>
                     <cardFace size=".244" :col="card.col" :row="card.row"/>
                 </div>
             </div>
         </div>
+
+
     </div>
 </template>
 
 <script>
 import { user, heroes, setting, cards } from "@/stores"
+import avatar from '@/components/avatar'
 export default {
     name: "consolePanel",
     props:['bus'],
+    components: { avatar },
     data(){
         return {
             currentRepoCard: null,
@@ -95,8 +101,10 @@ export default {
             let arr = []
             user.slots.sort((a,b)=> a - b)
             user.slots.forEach(index => {
-                if(typeof index === 'number')
+                if(typeof index === 'number'){
+                    cards[index].equiped = true
                     arr.push(cards[index])
+                }
             })
             return arr
         }
@@ -105,6 +113,12 @@ export default {
         showSetting(){
             setting.valid = true
         },
+        toggle(card, index){
+            if(card.equiped)
+                this.unequip(card)
+            else
+                this.equip(card)
+        },
         equip(card, index){
             if(!card.valid){
                 let mod = this.bus.$refs.modification
@@ -112,14 +126,21 @@ export default {
                 mod.valid = true
             }
             else{
+                if(user.slots.includes(card.id))
+                    return
                 if(user.slots.length > 6){
-                    user.slots.shift()
+                    if(user.slots[0]===card.id)
+                        user.slots.pop()
+                    else
+                        user.slots.shift()
                 }
-                user.slots.push(index)
+
+                user.slots.push(card.id)
             }
         },
         unequip(card, index){
-            user.slots.splice(index, 1)
+            card.equiped = false
+            user.slots.splice(user.slots.indexOf(card.id), 1)
             this.currentSlotCard = null
         },
         getType(card){
@@ -140,6 +161,10 @@ div.consolePanel{
         div.card{
             width: 150px;height: 187.27px;
             position: relative;margin: 0 2px;
+            transition: .4s cubic-bezier(0.84, -1.13, 0.16, 3);
+            div.closeBtnFix{
+                position: absolute;right: 1px;top: 1px;z-index: 15;
+            }
             i.name{
                 position: absolute;left: 0;top: 9px;display: block;
                 z-index: 6;
@@ -190,10 +215,14 @@ div.consolePanel{
             i.tips{
                 display: block;min-height: 35px;
                 color: lawngreen;text-shadow: 0 0 2px black;font-size: 18px;
+                i.x{
+                    display: inline-block;width: 16px;height: 16px;
+                    text-align: center;line-height: 15px;
+                    background: rgba(55,255,0,.2);
+                }
             }
         }
     }
-
     div.repositoryTips{
         position: absolute;bottom: 300px;right: 44px;z-index: 1;
         width: 350px;
@@ -235,6 +264,12 @@ div.consolePanel{
                 &.lock{
                     filter: saturate(0);
                 }
+                i.equiped{
+                    position: absolute; bottom: 5px; left: 8px;font-size: 15px;z-index: 10;
+                    color: #34e000;text-shadow: 0 0 2px black, 0 0 2px black;
+                    //color: lawngreen;
+                    transform: scaleX(1.5);
+                }
                 div.ribbon{
                     position: absolute;z-index: 1;
                     bottom: 20px;left: 0;
@@ -267,21 +302,6 @@ div.consolePanel{
         background-image: url("@/assets/ui_console_frame.png");
         background-size: cover;
         transform: scaleX(-1);
-    }
-    div.avatar{
-        --index:0;
-        position: absolute;z-index: 1;left: 43px;bottom:14px;
-        width: 240px;height: 260px;
-        background: url("@/assets/英雄头像.jpg") no-repeat;
-        background-size:2340px 260px;
-        background-position-x: calc(var(--index) * -260px);
-        box-shadow: 0 0 40px rgba(0,0,0,.6) inset, 0 0 0 3px black;
-        animation: heroAvatarGlow 5s infinite;
-        @keyframes heroAvatarGlow {
-            0%{ transform: translateY(.5px) rotateX(2deg) rotateY(2deg); filter: brightness(1) }
-            50%{ transform: translateY(-.5px) rotateX(-2deg ) rotateY(-2deg); filter: brightness(1.15) }
-            100%{ transform: translateY(.5px) rotateX(2deg) rotateY(2deg); filter: brightness(1) }
-        }
     }
     div.modify{
         z-index: 2;

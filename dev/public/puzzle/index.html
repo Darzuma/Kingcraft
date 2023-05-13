@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1'>
+	<link rel='stylesheet' href='build/bundle.css'>
+	<script defer src='build/bundle.js'></script>
+	<style>
+		html{
+            padding: 0;
+            margin: -2px;
+            overflow: hidden;
+		}
+		body{
+			padding: 0;
+			margin: 0;
+            cursor: url("cursor2.png"), auto;
+		}
+	</style>
+</head>
+<body>
+<script type="text/javascript">
+    window.onPuzzleSolved = function () {
+        // parent 在容器的组建中赋值的
+        // mounted() {
+        //     this.$refs.puzzle.contentWindow.parent = this
+        // }
+        parent.$emit('solved')
+    }
+</script>
+</body>
+</html>

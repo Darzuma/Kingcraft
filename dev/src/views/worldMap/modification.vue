@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { user, heroes, cards } from "@/stores"
+import { user, heroes, cards, game } from "@/stores"
 export default {
     name: "modification",
     props:['bus'],
@@ -90,13 +90,24 @@ export default {
             immediate: true,
             handler:function (val){
                 if(val){
+                    try{
+                        game.dispatch('GameManager', 'SetGameSpeed', 0.2)
+                    }catch (err){ console.log(err) }
+
+                    [ this.bus.index, this.bus.btnName ] = [ -1, '' ]
+
                     this.tink = ''
                     this.bus.$nextTick(()=>{
                         if(this.bus.$el)
                             this.bus.$el.classList.add('mask')
                     })
+
                 }
                 else{
+                    try{
+                        game.dispatch('GameManager', 'SetGameSpeed', 1)
+                    }catch (err){ console.log(err)  }
+
                     this.index = this.user.heroIndex
                     if(this.bus.$el)
                         this.bus.$el.classList.remove('mask')

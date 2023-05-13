@@ -23,12 +23,12 @@ ul,li{
   50%{ opacity: .5;}
   90%{ opacity: 1;}
 }
-.fade-enter-active,
-.fade-leave-active {
+.slideUp-enter-active,
+.slideUp-leave-active {
   transition: opacity 0.1s ease;
 }
-.fade-enter-from,
-.fade-leave-to {
+.slideUp-enter-from,
+.slideUp-leave-to {
   opacity: 0;
 }
 

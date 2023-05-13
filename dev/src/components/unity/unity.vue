@@ -1,5 +1,5 @@
 <template>
-    <canvas id="canvas"></canvas>
+    <canvas id="canvas"/>
 </template>
 
 <script>
@@ -30,7 +30,9 @@ export default {
                 createUnityInstance(this.$el, this.config, progress =>{
                     this.$emit('progress', progress)
                 }).then(instance => {
+                    // 前端向 unity 发送消息
                     this.dispatch = instance.dispatch = instance.SendMessage // 绑定前端向 unity 传值的接口
+
                     this.$emit('instance', instance) // 加载完成后传递当前 unity 实例
                 }).catch(err => console.log(err))
         },

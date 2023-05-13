@@ -63,7 +63,7 @@ export default {
 
 <style scoped lang="scss">
 div.loading{
-    position: absolute;left: 0;top: 0;width: 100vw;height: 100vh;z-index: 10;
+    position: absolute;left: 0;top: 0;width: 100vw;height: 100vh;z-index: 1000;
     background-color: #141414;
     user-select: none;
     div.container{

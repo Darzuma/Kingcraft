@@ -50,7 +50,7 @@ export default {
         w(){ return parseInt(this.width) },
         h(){ return parseInt(this.height) },
         style(){
-            let style = 'position: relative;z-index: 1000;'
+            let style = 'position: relative;z-index: 100;'
             return`${style}width:${this.w}px;height:${this.h}px;transform:scale(${this.index});transform-origin:${this.scalePosition};background-size: cover;flex-shrink: 0;`
         },
         verticalPosition(){
