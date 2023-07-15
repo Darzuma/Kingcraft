@@ -35,8 +35,8 @@ export default {
     name: "victory-modal",
     data(){
         return {
-            valid: false,
-            isVictory: false
+            valid: true,
+            isVictory: true
         }
     },
     props: [ 'bus' ],

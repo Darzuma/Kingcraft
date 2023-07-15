@@ -12,7 +12,7 @@ export let user = reactive({
     password: '',
     email: '',
     phone: '',
-    money: 100,
+    money: 1000,
     rubies: 10,
     zircons: 100,
     mageBoxes: '10',
@@ -22,8 +22,8 @@ export let user = reactive({
     heroIndex: 0,
     playedTimes: 0,
     ladderRanking: 0,
-    slots:[ 0, 5, 8, 9, 10, 11 ],
-    bakSlots:[0, 5, 8, 9, 10, 11],
+    slots:[ 0, 1, 5, 8, 9, 10, 11 ],
+    bakSlots:[0, 1, 5, 8, 9, 10, 11],
     showLogin: false,
 })
 

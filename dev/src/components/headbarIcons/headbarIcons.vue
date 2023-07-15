@@ -1,48 +1,50 @@
 <template>
-    <div class="headbarIcons">
-        <div class="item account">
-            <icon index="11" size="30" style="transform: translateY(1px)"/>
-            <i class="text" @click="showLogin">Hi, visitor ...</i>
-        </div>
-        <div class="btn ranking" @click="showLogin">
-            <icon index="12" size="34"/>
-        </div>
-        <div class="container">
-            <div class="item money">
-                <icon index="0" size="32"/>
-                <i class="text">{{ user.money }}</i>
+    <ratioBox width="1920" height="1290" top>
+        <div class="headbarIcons">
+            <div class="item account">
+                <icon index="11" size="30" style="transform: translateY(1px)"/>
+                <i class="text" @click="showLogin">Hi, visitor ...</i>
             </div>
-            <div class="item zircon">
-                <icon index="5" size="38" style="transform: translateY(-1px)"/>
-                <i class="text">{{ user.zircons }}</i>
+            <div class="btn ranking" @click="showLogin">
+                <icon index="12" size="34"/>
             </div>
-            <div class="item mageBox">
-                <icon index="2" size="28" style="transform: translateY(1px)"/>
-                <i class="text">{{ user.mageBoxes }}</i>
+            <div class="container">
+                <div class="item money">
+                    <icon index="0" size="32"/>
+                    <i class="text">{{ user.money }}</i>
+                </div>
+                <div class="item zircon">
+                    <icon index="5" size="38" style="transform: translateY(-1px)"/>
+                    <i class="text">{{ user.zircons }}</i>
+                </div>
+                <div class="item mageBox">
+                    <icon index="2" size="28" style="transform: translateY(1px)"/>
+                    <i class="text">{{ user.mageBoxes }}</i>
+                </div>
             </div>
-        </div>
-        <div class="btn map" @click="showLogin">
-            <icon index="4" size="53"/>
-        </div>
-        <div class="btn msg" @click="showLogin">
-            <icon index="8" size="53"/>
-        </div>
-        <div class="btn flag" @click="showLogin">
-            <icon index="9" size="53"/>
-        </div>
-        <div class="btn task" @click="showLogin">
-            <icon index="7" size="56"/>
-            <i class="badge">2</i>
-        </div>
-        <div class="btn treasure" @click="showLogin">
-            <icon index="6" size="56"/>
-            <i class="badge">1</i>
-        </div>
-        <div class="btn help" @click="showLogin">
-            <icon index="3" size="53"/>
-        </div>
+            <div class="btn map" @click="showLogin">
+                <icon index="4" size="53"/>
+            </div>
+            <div class="btn msg" @click="showLogin">
+                <icon index="8" size="53"/>
+            </div>
+            <div class="btn flag" @click="showLogin">
+                <icon index="9" size="53"/>
+            </div>
+            <div class="btn task" @click="showLogin">
+                <icon index="7" size="56"/>
+                <i class="badge">2</i>
+            </div>
+            <div class="btn treasure" @click="showLogin">
+                <icon index="6" size="56"/>
+                <i class="badge">1</i>
+            </div>
+            <div class="btn help" @click="showLogin">
+                <icon index="3" size="53"/>
+            </div>
 
-    </div>
+        </div>
+    </ratioBox>
 </template>
 
 <script>

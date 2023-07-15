@@ -85,7 +85,7 @@ export default {
                 if(game.currentCard){
                     game.currentCard.solved = true
                     if(game.dispatch)
-                        game.dispatch('CardManager','Cast',game.currentCard.name)
+                        game.dispatch('CardManager', 'Cast', game.currentCard.castName)
                     console.log('"' + game.currentCard.name + '" dispatched')
                 }
             },2200)

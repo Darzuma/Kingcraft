@@ -28,16 +28,16 @@ export default {
         messages(name, args){
             this[name](args)
         },
-        tutorial_showVictory(args){
+        showVictory(args){
             this.$refs.victoryModal.isVictory = true
             this.$refs.victoryModal.valid = true
         },
-        tutorial_showLoose(args){
+        showLoose(args){
             this.$refs.victoryModal.isVictory = false
             this.$refs.victoryModal.valid = true
         },
         tutorial_startStep(step){
-
+            
         }
     }
 }

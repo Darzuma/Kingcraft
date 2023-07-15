@@ -4,16 +4,16 @@
             <component ref="view" :is="Component"/>
         </keep-alive>
     </router-view>
-    <!--src="/unity/Kingcraft"-->
-    <unity ref="unity" src="/unity/Kingcraft"
+<!--    src="/unity/Kingcraft"-->
+    <unity ref="unity" src="/unity/Dist"
            @progress="progress"
            @messages="messages"
            @instance="instance"
     />
-    <globalUI/>
+<!--    <globalUI/>-->
     <menus :valid="setting.valid"/>
     <message/>
-    <loading @contextmenu="contextmenu" @clickToStart="clickToStart"/>
+<!--    <loading @contextmenu="contextmenu" @clickToStart="clickToStart"/>-->
 </template>
 <script>
 import menus from '@/components/menus'
@@ -44,10 +44,14 @@ export default {
         },
         instance(unityInstance){
             game.dispatch = unityInstance.SendMessage
-            if(!Cookies.get('username')){
-                game.dispatch("GameManager","SetScene","Tutorial")
-                this.$router.push('/tutorial')
-            }
+            unityInstance.SendMessage('GameManager','LoadScene','Level_1')
+
+            // setTimeout(()=>{
+            //     unityInstance.SendMessage('UnitManager','CreateUnit','Knight', '3', '1')
+            // },2000)
+            // if(!Cookies.get('username')){
+            //     this.$router.push('/tutorial')
+            // }
         }
     }
 }

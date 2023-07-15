@@ -17,16 +17,19 @@
         <div class="container login" v-else-if="isLogin">
             <div class="field">
                 <div class="name">Username</div>
-                <input type="text" v-model="username" @change="usernameWarning=''">
+                <input type="text" v-model="username">
                 <div class="error" v-show="usernameWarning">* {{ usernameWarning }}</div>
             </div>
             <div class="field">
                 <div class="name">Password</div>
-                <input type="text" v-model="password" @change="passwordWarning=''">
+                <input type="text" v-model="password">
                 <div class="error" v-show="passwordWarning">* {{ passwordWarning }}</div>
             </div>
+            <div class="hint" @click="retrieve">
+                Forget your password?
+            </div>
             <div class="hint" @click="isLogin = !isLogin">
-                Don't have an account? click here.
+                Sign up a new account here.
             </div>
             <footer>
                 <div class="warningMessage">{{ warningMessage }}</div>
@@ -37,17 +40,17 @@
         <div class="container signup" v-else>
             <div class="field">
                 <div class="name">Username</div>
-                <input type="text" v-model="username" @change="usernameWarning=''">
+                <input type="text" v-model="username">
                 <div class="error" v-show="usernameWarning">* {{ usernameWarning }}</div>
             </div>
             <div class="field">
                 <div class="name">Password</div>
-                <input type="text" v-model="password" @change="passwordWarning=''">
+                <input type="text" v-model="password">
                 <div class="error" v-show="passwordWarning">* {{ passwordWarning }}</div>
             </div>
             <div class="field">
                 <div class="name">Email</div>
-                <input type="text" v-model="email" @change="emailWarning=''" >
+                <input type="text" v-model="email">
                 <div class="error" v-show="emailWarning">* {{ emailWarning }}</div>
             </div>
             <div class="hint" @click="isLogin = !isLogin">
@@ -86,6 +89,20 @@ export default {
 
     },
     methods:{
+        change(){
+            console.log(this.username)
+        },
+        retrieve(){
+            this.loading = true
+            this.$http.post('/retrieve').then(result => {
+
+            })
+            setTimeout(()=>{
+                callback()
+                this.loading = false
+            }, 1000 + Math.random() * 3000)
+
+        },
         login(){
             if(!this.username){
                 this.usernameWarning = 'Please input a valid username'
@@ -146,6 +163,7 @@ export default {
             this.emailWarning = ''
             this.signupWarning = ''
             this.user.showLogin = false
+            this.loading = false
         }
     }
 }
@@ -211,7 +229,9 @@ div.container{
     align-items: center;
     padding-top: 30px;
     div.hint{
+        text-align: right;
         font-size: 17px;
+        width: 380px;
         &:hover{
             text-decoration: underline;
         }

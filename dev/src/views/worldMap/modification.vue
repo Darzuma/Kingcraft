@@ -17,7 +17,7 @@
                      :style="{ '--index': index }">
                 <i class="price">
                     <i class="icon"></i>
-                    <i>{{ hero.valid ? hero.price / 2 : hero.price }}</i>
+                    <i>{{ hero.valid ? (hero.price / 2) * hero.level : hero.price }}</i>
                 </i>
                 <i class="confirmBtn green" v-if="hero.valid && user.heroIndex !== index" @click="select">
                     SELECT
@@ -111,6 +111,7 @@ export default {
                     this.index = this.user.heroIndex
                     if(this.bus.$el)
                         this.bus.$el.classList.remove('mask')
+                    this.$message.valid = false
                 }
             }
         }
@@ -140,8 +141,8 @@ export default {
             }
         },
         upgrade(){
-            let price = this.hero.price / 2
-            if(this.user.money > price){
+            let price = (this.hero.price / 2) * this.hero.level
+            if(this.user.money >= price){
                 this.user.money -= price
                 this.hero.level += 1
                 this.$save();

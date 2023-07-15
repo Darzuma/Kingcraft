@@ -1,8 +1,11 @@
 <template>
-    <div class="worldMap" :class="{ activated: activated }" @mousemove="mousemove">
+    <div class="worldMap" :class="{ activated: activated }"
+         @mousemove="mousemove"
+         @click="click"
+         @wheel="wheel"
+    >
         <ratioBox width="1920" height="1290" bottom>
             <modification ref="modification" :bus="this"/>
-            <headbarIcons ref="consoleHeads" :bus="this"/>
             <consolePanel ref="consolePanel" :bus="this"/>
         </ratioBox>
 <!--        btnIndex !== -1-->
@@ -20,16 +23,16 @@
 </template>
 
 <script>
-import { user, heroes, setting } from "@/stores"
+import { user, heroes, game, setting } from "@/stores"
 import modification from "./modification";
 import consolePanel from "./consolePanel";
-import headbarIcons from '@/components/headbarIcons'
+
 import login from './login'
 import Cookies  from 'js-cookie'
 export default {
     name: 'worldMap',
     components:{
-        modification, headbarIcons, consolePanel, login
+        modification, consolePanel, login
     },
     beforeCreate() {
 
@@ -42,6 +45,7 @@ export default {
     },
     data(){
         return {
+            n:1,
             btnIndex: -1,
             btnName : '',
             gameModeInfos: [
@@ -73,12 +77,25 @@ export default {
         },
     },
     methods:{
+        wheel(){
+            console.log('wheel')
+        },
+        click(){
+            // game.dispatch('GameManager','TestInt', 10)
+            // game.dispatch('GameManager','TestFloat', 1.5)
+            // this.n += 1
+            // console.log(this.n)
+            // game.dispatch('MainCamera', 'UpdateZoomSize', this.n)
+        },
         // 接收 unity 事件和消息
         messages(name, args){
-            this[name](args)
+            console.log(name)
+            if(this[name])
+                this[name](args)
         },
-        worldMap_btn_click(args){
+        worldMap_btn_mouseDown(args){
             user.showLogin = true
+            console.log(args)
         },
         worldMap_btn_mouseEnter(args){
             [ this.btnIndex, this.btnName ] = args

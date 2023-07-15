@@ -4,7 +4,7 @@
         <avatar style="position: absolute;z-index: 1;left: 43px;bottom:14px;"/>
         <div class="modify" @click="bus.$refs.modification.valid = !bus.$refs.modification.valid"/>
         <div class="crystal">
-            {{ hero.level * 3 }}
+            {{ 2 + hero.level * 1 }}
         </div>
         <div class="heroName">
             {{ hero.name }}
@@ -18,9 +18,14 @@
 
         <!--中间卡槽-BEGIN -->
         <div class="slot">
-            <div class="tips" v-show="currentSlotCard" :style="{ '--index': currentSlotIndex }">
-                <i class="tips"><i class="x">×</i> to unequip</i>
-                <i class="info">{{ currentSlotCard ? currentSlotCard.name : '' }}</i>
+            <div class="tips" v-if="currentSlotCard" :style="{ '--index': currentSlotIndex }">
+                <i class="name">{{ currentSlotCard.name  }}</i>
+                <i class="info">{{ currentSlotCard.info  }}</i>
+                <footer>
+                    <icon index="14" size="28"/>
+                    <i class="cost">{{ currentSlotCard.supply }}</i>
+                    <i class="tips">Click <i class="x">×</i> to unequip</i>
+                </footer>
             </div>
             <div class="card" :class="[ getType(card) ]" v-for="(card, index) in slots"
                  @mousemove="currentSlotCard = card; currentSlotIndex = index"
@@ -199,28 +204,45 @@ div.consolePanel{
             }
         }
         div.tips{
-            --index:0;
-            position: absolute;top: -120px;left:calc(var(--index) * 150px);z-index: 1;
-            min-width: 350px;
+            --index:100;
+            position: absolute;bottom: calc(100% + 5px);left:calc(var(--index) * 150px);z-index: 1;
+            min-width: 480px;
             min-height: 93px;line-height: 1.5;
             text-shadow: 0 0 2px black;
             background: rgba(0,0,0,.7);
             border: 1px solid #867456;
             border-radius: 5px;
             padding: 9px 18px 20px 18px;
-            i.info{
+            i.name{
                 display: block;
-                color: #f1d1aa;font-size: 18px;
+                color: #f1d1aa;font-size: 24px;
             }
-            i.tips{
-                display: block;min-height: 35px;
-                color: lawngreen;text-shadow: 0 0 2px black;font-size: 18px;
-                i.x{
-                    display: inline-block;width: 16px;height: 16px;
-                    text-align: center;line-height: 15px;
-                    background: rgba(55,255,0,.2);
+
+            i.info{
+                margin-top: 15px;
+                display: block;font-size: 20px;
+                color: #f2e4d5;
+            }
+            footer{
+                margin-top: 15px;
+                display: flex;
+                height: 40px;
+                align-items: end;
+                i.cost{
+                    font-size: 20px;
+                    color: rgba(255,255,255,.8);
+                    margin:0 50px 0 5px;
+                }
+                i.tips{
+                    color: lawngreen;text-shadow: 0 0 2px black;font-size: 18px;
+                    i.x{
+                        display: inline-block;width: 16px;height: 16px;
+                        text-align: center;line-height: 15px;
+                        background: rgba(55,255,0,.2);
+                    }
                 }
             }
+
         }
     }
     div.repositoryTips{

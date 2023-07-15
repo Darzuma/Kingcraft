@@ -1,19 +1,42 @@
 import {reactive} from "vue";
 
 export default reactive([
-    { type:0, level:1, col:0,row:0, heroIndex:0, valid:true, costs:1, name:'Cavalry',},
-    { type:0, level:1, col:0,row:1, heroIndex:0, valid:true, costs:1, name:'Sparta',   },
-    { type:0, level:1, col:0,row:2, heroIndex:1, valid:false, costs:1, name:'Mercenary', requirement:'Level 5 Achilles' },
-    { type:0, level:1, col:0,row:3, heroIndex:1, valid:true, costs:1, name:'Knight', requirement:'Level 10 Achilles' },
+    { type:0, level:1, col:0,row:0, heroIndex:0, valid:true, costs:1, name:'Cavalry',
+        info:'Recruit 3 heavily armored knights, each knight has 50 HP and 2 damage.',
+        supply:'30'
+    },
+    { type:0, level:1, col:0,row:1, heroIndex:0, valid:true, costs:1, name:'Sparta',
+        info:'Recruit 12 wielding Spartans, each with 20 HP and 2 damage.',
+        supply:'30'
+    },
+    { type:0, level:1, col:0,row:2, heroIndex:1, valid:false, costs:1, name:'Mercenary', requirement:'Level 5 Achilles',
+
+    },
+    { type:0, level:1, col:0,row:3, heroIndex:1, valid:false, costs:1, name:'Knight', requirement:'Level 10 Achilles' },
     { type:0, level:1, col:1,row:0, heroIndex:0, valid:false, costs:1, name:'Archer', requirement:'Level 5 Odysseus',      },
-    { type:0, level:1, col:1,row:1, heroIndex:0, valid:true, costs:1, name:'Viking warrior', },
-    { type:0, level:1, col:1,row:2, heroIndex:1, valid:true, costs:1, name:'Priest',  requirement:'Level 5 Achilles',       },
+    { type:0, level:1, col:1,row:1, heroIndex:0, valid:true, costs:1, name:'Viking warrior',
+        info:'Recruit 6 Viking warriors, each Viking warrior has 30 HP and 1 damage.',
+        supply:'30'
+    },
+    { type:0, level:1, col:1,row:2, heroIndex:1, valid:false, costs:1, name:'Priest',  requirement:'Level 5 Achilles',       },
     { type:0, level:1, col:1,row:3, heroIndex:2, valid:false, costs:1, name:'Red Dragon',   requirement:'Level 5 Apollo',  },
-    { type:1, level:1, col:2,row:0, valid:true, costs:1, name:'Volley',     },
-    { type:1, level:1, col:2,row:1, valid:true, costs:1, name:'Fire rocks', },
-    { type:2, level:1, col:2,row:2, valid:true, costs:2, name:'Top speed',   },
-    { type:2, level:1, col:2,row:3, valid:true, costs:2, name:'Revive',     },
-    { type:1, level:1, col:3,row:0, valid:true,costs:1, name:'Blood strike',   },
+    { type:1, level:1, col:2,row:0, valid:true, costs:1, name:'Volley',  castName:'LongBowVolley',
+        info:'Shoots a rain of arrows at enemies, deals up to 10 damage in cast area.',
+        supply:'30'
+    },
+    { type:1, level:1, col:2,row:1, valid:true, costs:1, name:'Fire rocks', castName:'HellFire',
+        info:'Deal heavy damage to enemies with trebuchets attack, deals up to 30 damage in cast area..',
+        supply:'30'
+    },
+    { type:2, level:1, col:2,row:2, valid:true, costs:2, name:'Top speed', castName:'Boost',
+        info:'Imbues your warriors with divine power, increasing their movement speed and attack speed for a short time.',
+        supply:'15'
+    },
+    { type:2, level:1, col:2,row:3, valid:true, costs:2, name:'Revive',castName:'Revive',
+        info:'Summons the souls of the your warriors, make them stand up and fight again.',
+        supply:'15'
+    },
+    { type:1, level:1, col:3,row:0, valid:false,costs:1, name:'Blood strike',   },
     { type:1, level:1, col:3,row:1, valid:false,costs:1, name:'Excalibur',      },
     { type:2, level:1, col:3,row:2, valid:false,costs:1, name:'Fire strike',    },
     { type:0, level:1, col:3,row:3, valid:false,costs:5, name:'Fire avalanche', },
