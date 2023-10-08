@@ -1,8 +1,6 @@
 <template>
     <div class="worldMap" :class="{ activated: activated }"
          @mousemove="mousemove"
-         @click="click"
-         @wheel="wheel"
     >
         <ratioBox width="1920" height="1290" bottom>
             <modification ref="modification" :bus="this"/>
@@ -80,13 +78,7 @@ export default {
         wheel(){
             console.log('wheel')
         },
-        click(){
-            // game.dispatch('GameManager','TestInt', 10)
-            // game.dispatch('GameManager','TestFloat', 1.5)
-            // this.n += 1
-            // console.log(this.n)
-            // game.dispatch('MainCamera', 'UpdateZoomSize', this.n)
-        },
+
         // 接收 unity 事件和消息
         messages(name, args){
             console.log(name)

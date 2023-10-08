@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="492a2d13-8803-4266-8243-ed8943c4fb82" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../../test/public/api/signup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/public/api/user" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/public/fav_icon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/public/puzzle/build/bundle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/public/puzzle/build/bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/public/puzzle/build/bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/public/puzzle/cursor2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/public/puzzle/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/cursor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/cursor2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/lib/htmlReset.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/lib/loadScript.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/lib/throttle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/loadingBG.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/loadingTitle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/style/main.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/style/reset.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/test.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/ui_arrow.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/ui_close_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/ui_close_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/ui_console_frame.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/ui_menu_btn1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/ui_menu_btn2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/卡牌.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/卡牌边框.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/卡牌边框0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/卡牌边框1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/卡牌边框2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/图标.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/天赋图标.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/天赋边框.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/游戏模式封面.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/界面_弹框0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/胜利画面背景.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/英雄头像.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/英雄选择_按钮.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/英雄选择_按钮2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/英雄选择_相框.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/解密背景.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/assets/金币.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/avatar/avatar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/avatar/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/cardFace/cardFace.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/cardFace/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/fit/fit.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/fit/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/gadgets/btn/btn.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/gadgets/btn/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/gadgets/closeBtn/closeBtn.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/gadgets/closeBtn/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/gadgets/icon/icon.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/gadgets/icon/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/gameContainer/gameContainer.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/gameContainer/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/headbar/headbar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/headbar/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/loading/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/loading/loading.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/message/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/message/message.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/modal/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/modal/modal.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/options/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/options/options.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/ratioBox/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/ratioBox/ratioBox.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/unity/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/unity/loader.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/components/unity/unity.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/mock/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/plugins/http.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/plugins/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/router/guard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/router/router.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/router/routes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/store/cards.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/store/counter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/store/game.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/store/heroes.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/store/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/store/loading.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/store/order.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/store/unity.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/store/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/campaign/campaign.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/campaign/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/campaign/panels.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/campaign/puzzle.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/campaign/victoryModal.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/home/home.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/home/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/market/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/market/market.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/payment/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/payment/payment.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/payment/testContainer.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/tutorial/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/tutorial/tutorial.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/worldMap/consolePanel.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/worldMap/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/worldMap/login.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/worldMap/modification.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../test/src/views/worldMap/worldMap.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dev/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../dev/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dev/src/components/unity/unity.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../dev/src/components/unity/unity.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../dev/src/views/worldMap/worldMap.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../dev/src/views/worldMap/worldMap.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/public/vite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/src/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../test/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../test/vite.config.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2TSfoj47OWNCvNFXpZi64lozjSB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../test" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="492a2d13-8803-4266-8243-ed8943c4fb82" name="Default Changelist" comment="" />
+      <created>1691041579630</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1691041579630</updated>
+      <workItem from="1691041580866" duration="2399000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1061" y="456" key="FileChooserDialogImpl" timestamp="1691042788137">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1061" y="456" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1691042788137" />
+  </component>
+</project>

@@ -5,7 +5,7 @@
         </keep-alive>
     </router-view>
 <!--    src="/unity/Kingcraft"-->
-    <unity ref="unity" src="/unity/Dist"
+    <unity ref="unity" src="/unity/Kingcraft"
            @progress="progress"
            @messages="messages"
            @instance="instance"
@@ -44,7 +44,7 @@ export default {
         },
         instance(unityInstance){
             game.dispatch = unityInstance.SendMessage
-            unityInstance.SendMessage('GameManager','LoadScene','Level_1')
+            // unityInstance.SendMessage('GameManager','LoadScene','Level_1')
 
             // setTimeout(()=>{
             //     unityInstance.SendMessage('UnitManager','CreateUnit','Knight', '3', '1')

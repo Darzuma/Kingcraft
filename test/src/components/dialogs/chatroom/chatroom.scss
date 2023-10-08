@@ -1,0 +1,90 @@
+div.msgboard_d5wa41{
+  width: 520px;
+  height: 950px;
+  margin-bottom: 20px;
+  div.msgContainer{
+    border: 1px solid #968d6f;
+    height: 750px;
+    border-radius: 2px;
+    padding: 10px 10px 100px 10px;
+    overflow-y: scroll;
+    &.loading{
+      overflow-y: hidden;
+    }
+    &::-webkit-scrollbar{
+      width: 0;
+    }
+    div.pendingBox{
+      height: 100%;
+      display: flex;align-items: center;justify-content: center;
+    }
+    div.loadingBox{
+      padding: 0 0 10px 0;
+      display: flex;justify-content: center;
+    }
+
+    div.log{
+      position: relative;
+      background-color: rgba(247,239,210,.1);
+      display: flex;
+      padding: 5px 10px;
+      margin-bottom: 10px;
+      border-radius: 3px;
+      div.avatarBox{
+        width: 60px;height: 65px;overflow: hidden;
+        min-width: 60px;
+        border: 1px solid #968d6f;
+        border-radius: 2px;
+      }
+      div.msgBox{
+        text-shadow: 0 0 4px black;
+        padding: 5px 10px;
+        header{
+          font-size: 18px;
+          display: flex;
+          div.username{
+            color: #e5dfcc;font-weight: bold;
+          }
+          div.level{
+            opacity: .6;margin-left: 10px;
+          }
+        }
+        main{
+          display: flex;flex-wrap: wrap;align-items: center;
+          margin-top: 10px;
+          text{
+            margin-right: 5px;line-height: 1.5;
+          }
+        }
+      }
+      div.time{
+        position: absolute;right: 5px;bottom: 5px;
+        font-size: 12px;font-weight: lighter;
+        color: #6d6a51;
+        text-shadow: none;
+      }
+    }
+  }
+  div.txtBox{
+    height: 170px;
+    margin-top: 20px;
+    display: flex;
+    border-radius: 2px;
+    textarea{
+      font-size: 19px;
+      color: white;
+      resize: none;
+      border: 1px solid #a8a170;
+      background: transparent;
+      padding: 10px 12px;
+      line-height: 1.5;letter-spacing: .5px;
+      &::placeholder{
+        color: rgba(255,255,255,.8);letter-spacing: 1px;
+      }
+    }
+  }
+  div.btnBox{
+    display: flex;flex-direction: column;justify-content: space-between;
+
+  }
+}

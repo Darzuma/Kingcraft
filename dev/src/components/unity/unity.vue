@@ -1,5 +1,5 @@
 <template>
-    <canvas id="canvas"/>
+    <canvas id="canvas" style="position: relative;z-index: 999"/>
 </template>
 
 <script>
