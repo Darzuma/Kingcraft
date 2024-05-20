@@ -2,10 +2,12 @@
     <div class="worldMap" :class="{ activated: activated }"
          @mousemove="mousemove" @click="click" @wheel="wheel"
     >
+        <!--底部UI面板-->
         <ratioBox width="1920" height="1290" bottom>
             <consolePanel ref="consolePanel" :bus="this"/>
         </ratioBox>
 <!--        btnIndex !== -1-->
+        <!--鼠标移动到世界地图图标上时，显示的提示信息-->
         <div class="gameInfo" v-show="btnIndex !== -1" :style="{ '--left': left, '--top': top }">
             <div class="cover" :style="{ '--coverIndex': btnIndex }">
                 <div class="alphabet"><i>{{ alphabets[btnIndex] }}</i></div>

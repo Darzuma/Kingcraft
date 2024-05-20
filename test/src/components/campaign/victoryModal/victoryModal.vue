@@ -80,6 +80,13 @@ export default {
     },
     methods:{
         backToWorldMap(){
+            if(this.showSuccess){
+                let nextLevel = Number(this.$route.query.level) + 1
+                if(nextLevel < 6){
+                    let maxLevel = nextLevel > this.$store.user.maxCampaignLevel ? nextLevel : this.$store.user.maxCampaignLevel
+                    localStorage.setItem('maxCampaignLevel', maxLevel)
+                }
+            }
             this.$router.push({ name:'worldMap' })
         },
         nextLevel(){

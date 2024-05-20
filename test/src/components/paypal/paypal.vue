@@ -4,7 +4,8 @@
 
 <script>
 import { loadScript } from "@paypal/paypal-js";
-
+// 测试沙盒 ID : AV85s9cgmiD1XlwuoqMYOQDFN350ZONOvtoFAA05pTrCgkbHwYsf-BX1UupSy8ru2Fj8W85bc5UzK6S-
+// 真实账号 ID :
 const clientId = "AV85s9cgmiD1XlwuoqMYOQDFN350ZONOvtoFAA05pTrCgkbHwYsf-BX1UupSy8ru2Fj8W85bc5UzK6S-"
 const style = { layout:'vertical', color: 'blue', height: 44 } // label: 'paypal' 'checkout' 'buynow' 'pay' 这仨都很丑，默认就可以; shape:'rect' 'pill'; height: 25~55 默认是55
 

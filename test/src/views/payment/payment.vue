@@ -1,6 +1,6 @@
 <template>
     <div class="payment">
-        <div class="wrapper">
+        <div class="wrapper" :class="{ validated: validated }">
             <header>
                 Payment Information
             </header>
@@ -56,6 +56,7 @@ export default {
     mounted() {
         // 处理外链付款
         if(this.$store.order.username && this.$store.order.amount){
+
             this.validated = true
             // 处理页面标题和图标
             document.title = '\u205fPayment by Paypal'
@@ -69,6 +70,7 @@ export default {
         else{
             this.validated = false
         }
+
     },
     created() {
         this.key = Date.now()
@@ -168,6 +170,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "validated.scss";
 div.payment{
     // 加粗字体 "Object Sans", Helvetica, Arial, sans-serif
     // 普通字体 "Noto Sans", Helvetica, Arial, sans-serif
@@ -185,17 +188,18 @@ div.payment{
         min-height: 750px;
         margin: 0 auto;
         header{
-            font-size: 26px;
+            //font-size: 5.6vw;
+            font-size: 24px;
             font-weight: bold;
             text-align: center;
             padding: 70px 0 20px 0;
         }
         div.info{
             //margin: 10px 0 40px 0;
-            text-align: center;
             margin-bottom: 50px;
             line-height: 2;
             color: #dae3ed;
+            display: flex;justify-content: center;
         }
         div.total,div.success{
             font-family: "Object Sans", Helvetica, Arial, sans-serif;

@@ -4,7 +4,7 @@
         <div class="account">
             <div class="username_dwa54">
                 <icon index="11" size="22" style="transform: translateY(1px)"/>
-                <i class="text" @click="showLogin">{{ user.username ? user.username : 'Archon Novice' }}</i>
+                <i class="text" @click="showLogin">{{ user.username ? user.username : 'Novice Archon' }}</i>
             </div>
             <div class="troops_fda5">
                 <icon index="14" size="26"/>

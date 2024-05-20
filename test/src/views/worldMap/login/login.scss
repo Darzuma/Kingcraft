@@ -1,18 +1,42 @@
 div.login_ff68qe6t{
+  position: relative;
+  div.pendingBox{
+    width: 100%;height: 100%;
+    position: absolute;top: 0;left: 0;
+    display: flex;align-items: center;justify-content: center;
+    background-color: rgba(0,0,0,.8);
+  }
   div.container{
-    width: 380px;height: 560px;
+    min-width: 380px;min-height: 560px;
     display: flex;flex-direction: column;
     align-items: center;
-    padding-top: 20px;
-
-    div.hint{
-      text-align: right;
-      font-size: 17px;
-      width: 85%;
-      color: #00bbff;
-      &:hover{
-        text-decoration: underline;
+    padding: 40px 30px 60px 30px;
+    &.retrieve{
+      width: 435px;
+      min-height: 380px;
+      div.dwa4{
+        font-size: 19px;
+        color: #14ff66;
       }
+      div.field{
+        width: 95%;
+      }
+      footer{
+          display: flex;justify-content: right;flex-direction: column;
+          align-items: end;
+      }
+    }
+    div.hint{
+      font-size: 17px;
+      display: flex;justify-content: right;
+      width: 100%;
+      div.text{
+        color: #00bbff;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+
     }
     div.signupMessage{
       margin-top: 100px;
@@ -20,7 +44,7 @@ div.login_ff68qe6t{
     }
     div.field{
       position: relative;
-      width: 85%;
+      width: 100%;
       margin-bottom: 55px;
       div.name{
         color: #fcf3e3;
@@ -42,6 +66,27 @@ div.login_ff68qe6t{
         color: red;
         height: 20px;
       }
+    }
+    footer{
+      margin-top: 30px;
+      div.warningMessage{
+        color: red;
+        margin: 0 0 20px 0;
+      }
+    }
+
+  }
+  div.signOut{
+    width: 440px;height: 260px;
+    div.content{
+      text-align: center;
+      height: 120px;line-height: 120px;
+      font-size: 18px;letter-spacing: .5px;
+    }
+    div.btns{
+      margin-top: 30px;
+      padding: 0 40px;
+      display: flex;justify-content: space-between;
     }
   }
 }
