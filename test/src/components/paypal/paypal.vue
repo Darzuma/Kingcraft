@@ -73,7 +73,7 @@ export default {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 div#container-e5ds905{
     margin-top: 45px;
     padding-top: 30px;
@@ -84,7 +84,7 @@ div#container-e5ds905{
         text-align: center;
         position: absolute;left: 75px;top: -20px;
         width: 200px;height: 30px;
-        content: 'Payment method';font-size: 20px;color: #85868a;line-height: 30px;
+        content: 'Payment Method';font-size: 20px;color: #85868a;line-height: 30px;
         font-weight: bold;
         background-color: #14171e;
         letter-spacing: .5px;

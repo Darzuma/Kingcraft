@@ -1,5 +1,5 @@
 <template>
-    <modal title="Arena Ladder" nudgeY="-80" v-model:valid="$store.user.showLadder" @close="close">
+    <modal title="Arena Ladder" nudgeY="3" v-model:valid="$store.user.showLadder" @close="close">
         <div class="arenaLadder">
             <header>
                 <div class="title">Bronze</div>

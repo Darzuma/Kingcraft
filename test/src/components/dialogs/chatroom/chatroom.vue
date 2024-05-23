@@ -1,5 +1,5 @@
 <template>
-    <modal title="Message Board" v-model:valid="$store.user.showChatroom" @close="close">
+    <modal title="Message Board" v-model:valid="$store.user.showChatroom" @close="close" nudgeY="1">
 
         <div class="msgboard_d5wa41">
 

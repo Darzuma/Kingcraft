@@ -60,7 +60,7 @@ div.mask{
     background-color: rgba(0,0,0,.4);
     div.modal{
         --nudgeY: 0;
-        transform: translateY(calc(var(--nudgeY) * 1px));
+        transform: translateY(calc(var(--nudgeY) * 1vh));
         pointer-events: auto;
         position: relative;
         min-height: 180px;

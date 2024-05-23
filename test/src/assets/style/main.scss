@@ -1,12 +1,16 @@
 @import "reset.scss";
+:root {
+  // 系统 4K 175% 放大的情况下，1rem 等于 15px
+  font-size: .8201vw;
+}
 body{
   overflow: hidden;
   font-family: Dutch801 Rm BT,Arial,"PingFang SC","Microsoft YaHei","微软雅黑","Hiragino Sans GB",sans-serif;
   cursor: url("@/assets/cursor.png"), auto;
   user-select: none;
 
-  background: url("@/assets/test.jpg");
-  //background-color: #14171e;
+  //background: url("@/assets/test.jpg");
+  background-color: #14171e;
   background-size: cover;
 
   .interactive{

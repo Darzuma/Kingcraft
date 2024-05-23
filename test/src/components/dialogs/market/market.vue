@@ -266,6 +266,7 @@ div.gameMarket{
     padding-top: 30px;
     width: 540px;
     height: 900px;
+    max-height: 80vh;
     display: flex;flex-direction: column;align-items: center;justify-content: start;
     header.vipContainer{
         position: relative;z-index: 5;
@@ -273,7 +274,7 @@ div.gameMarket{
         display: flex;justify-content: center;
         margin-top: -10px;
         div.Mark_dwa5{
-            width: 120px;
+            width: 120px;height: 120px;
             background: url("@/assets/img/印花.png");
             background-size: cover;
             display: flex;flex-direction: column;justify-content: center;align-items: center;

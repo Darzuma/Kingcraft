@@ -2,6 +2,12 @@ div.msgboard_d5wa41{
   width: 520px;
   height: 950px;
   margin-bottom: 20px;
+  max-height: 80vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   div.msgContainer{
     border: 1px solid #968d6f;
     height: 750px;

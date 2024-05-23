@@ -1,5 +1,7 @@
 <template>
-    <modal title="Warrior of Legends" :valid="$store.user.showLogin" @close="$store.user.showLogin = false" nudgeY="-70">
+    <modal title="Warrior of Legends" :valid="$store.user.showLogin" @close="$store.user.showLogin = false"
+           nudgeY="-1">
+
         <div class="login_ff68qe6t">
             <div v-if="!$store.user.username">
                 <signin ref="sigin"  v-if="type===1" :bus="this"/>

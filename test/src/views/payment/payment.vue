@@ -1,6 +1,6 @@
 <template>
-    <div class="payment">
-        <div class="wrapper" :class="{ validated: validated }">
+    <div class="payment" :class="{ validated: validated }">
+        <div class="wrapper">
             <header>
                 Payment Information
             </header>
@@ -23,7 +23,7 @@
                     @approve="approve"
             />
             <div v-if="showError">
-                <div class="complete">
+                <div class="complete" style="margin-top: -10vw">
                     <div style="color: red">Sorry,we've encountered an error.</div>
                     <div style="color: red">
                         Please wait and your payment will be returned within 24 hours.
@@ -41,7 +41,10 @@
                 <div class="greenText">Please back to the game page.</div>
                 <div class="btnBox"><button @click="goToWorldMap">Continue</button></div>
             </div>
-            <footer><div class="card" v-for="n in 6" :style="{'--x': n}">{{ n }}</div></footer>
+
+<!--            <footer>-->
+<!--                <div class="cards"/>-->
+<!--            </footer>-->
         </div>
     </div>
 </template>
@@ -178,14 +181,14 @@ div.payment{
     cursor: default;
     position: absolute;top: 0;left: 0;z-index: 500;
     background-color: #14171e;
+    //background: white;
     width: 100%;
     height: 100%;
     div.wrapper{
         color: #ededed;
         width: 400px;
         padding: 0 25px;
-        height: 750px;
-        min-height: 750px;
+        min-height:600px;
         margin: 0 auto;
         header{
             //font-size: 5.6vw;
@@ -268,16 +271,18 @@ div.payment{
             }
         }
         footer{
-            margin-top: 40px;
-            display: flex;justify-content: space-between;
-            div.card{
-                --x:0;
-                width: 50px;height: 33.33px;line-height: 32px; // 72 48
-                background: url("@/assets/payment_icons.png");
-                background-position-x: calc(var(--x) * -50px);
-                background-position-y:0;
-                background-size: cover;
-            }
+            //margin-top: 40px;
+            //display: flex;justify-content: space-between;
+            //div.card{
+            //    --x:0;
+            //    --width:50px;
+            //    width: var(--width);
+            //    height: 33.33px; // 72 48
+            //    background: url("@/assets/payment_icons.png");
+            //    background-position-x: calc(var(--x) * var(--width) * -1);
+            //    background-position-y:0;
+            //    background-size: cover;
+            //}
         }
         div.continue{
             div.greenText{

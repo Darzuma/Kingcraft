@@ -12,10 +12,17 @@ router.beforeEach((to, from, next) => {
     isPayment = Boolean(to.query.method)
     if(isPayment){
         // 获取支付数据
-        localStorage.setItem('username', to.query.username)
-        localStorage.setItem('amount', to.query.amount)
-        localStorage.setItem('remark', to.query.remark)
-        localStorage.setItem('uid', to.query.uid)
+        // action 格式 [ itemHash, username, uid ]
+        // itemHash: ['C4C6A7591124362675F0A231FAAC2153IKJLDW675F0A231FAAC2', '0162EBAFA8E90B4AEB6ECF22AD76E3D9DJKQUWD675F0A231FAC2']
+        const arr = JSON.parse(to.query.p)
+        const info = {
+            'C4C6A7591124362675F0A231FAAC2153IKJLDW675F0A231FAAC2':{ amount:2.9, remark:20 },
+            '0162EBAFA8E90B4AEB6ECF22AD76E3D9DJKQUWD675F0A231FAC2':{ amount:19.9, remark:200 }
+        }[arr[0]]
+        localStorage.setItem('username', arr[1])
+        localStorage.setItem('amount', info.amount)
+        localStorage.setItem('remark', info.remark)
+        localStorage.setItem('uid', arr[2])
         localStorage.setItem('orderStep', '1')
 
         next({ name:'home' })

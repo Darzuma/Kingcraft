@@ -1,5 +1,5 @@
 <template>
-    <modal title="Citadel Production" v-model:valid="$store.user.showCitadel" @close="close">
+    <modal title="Citadel Production" v-model:valid="$store.user.showCitadel" @close="close" nudgeY="1">
         <div class="citadel">
             <div class="bg"/>
             <div class="note_da24">
@@ -93,6 +93,12 @@ export default {
 div.citadel{
     position: relative;
     width: 900px;height: 880px;
+    max-height: 80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+        display: none;
+    }
     div.bg{
         position: absolute;width: 900px;height: 780px;
         left: 0;top: 20px;

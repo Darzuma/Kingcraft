@@ -1,5 +1,5 @@
 <template>
-    <modal title="Game Control" nudgeY="-100"
+    <modal title="Game Control" nudgeY="1"
            v-model:valid="$store.user.showSetting"
            @close="close"
     >
@@ -84,6 +84,12 @@ export default {
 
 <style scoped lang="scss">
 div.helps_dkwad163{
+    max-height: 80vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+        display: none;
+    }
     div.section{
         width: 400px;
         height: 150px;

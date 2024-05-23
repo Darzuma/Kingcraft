@@ -1,5 +1,5 @@
 <template>
-    <modal title="Barracks" v-model:valid="$store.user.showTroops">
+    <modal title="Barracks" v-model:valid="$store.user.showTroops" nudgeY="3">
         <div class="barracks">
             <div class="bg"/>
 
@@ -36,7 +36,7 @@
             <talentBox style="left: 248px;top: 445px"/>
             <talentBox style="left: 384px;top: 445px"/>
             <talentBox style="left: 604px;top: 445px"/>
-
+            <div class="placeHolder"></div>
             <footer class="bottom"><btn @click="showMarket">More supplies</btn></footer>
 
         </div>
@@ -62,6 +62,12 @@ div.barracks{
     position: relative;
     width: 800px;
     height: 920px;
+    max-height: 84vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    &::-webkit-scrollbar {
+        display: none;
+    }
     div.bg{
         width: 800px;
         height: 800px;
@@ -88,8 +94,12 @@ div.barracks{
             color: #00ff1d;
         }
     }
+    div.placeHolder{
+        height: 770px;
+    }
     footer.bottom{
-        position: absolute;bottom: 0;height:170px;width: 100%;
+        //position: absolute;bottom: 0;
+        height:170px;width: 100%;
         display: flex;align-items: center;justify-content: center;
     }
 }
