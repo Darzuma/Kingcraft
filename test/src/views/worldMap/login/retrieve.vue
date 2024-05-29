@@ -60,17 +60,23 @@ export default {
             if(this.step < 3){
                 this.bus.loading = true
                 if(this.step === 1)
-                    this.$http.get(`/kingcraft/username?email=${this.email}`)
+                    this.$http.post(`/v2/getUsernameByEmail`, { email: this.email })
                         .then(result => {
-                            if(result.data){
-                                this.step += 1
-                                let str = ''
-                                for(let i=0; i<result.data.length - 2; i++)
-                                    str += '*'
-                                this.username = result.data[0] + str + result.data.substr(-1)
+                            console.log(result.data)
+                            switch (result.data){
+                                case 'invalid:email':
+                                    this.emailWarning = 'The email address does not exists !'
+                                    break
+                                case 'error:backend':
+                                    this.emailWarning = 'We are working hard to fix the website. Please try again later.'
+                                    break
+                                default:
+                                    this.step += 1
+                                    let str = ''
+                                    for(let i=0; i<result.data.length - 2; i++)
+                                        str += '*'
+                                    this.username = result.data[0] + str + result.data.substr(-1)
                             }
-                            else
-                                this.emailWarning = 'The email address does not exists !'
                             this.bus.loading = false
                         })
                         .catch(err => { console.log(err);this.bus.loading = false })
@@ -80,7 +86,7 @@ export default {
                         this.passwordWarning = 'Passwords didn’t match. Please retry.'
                     }
                     else{
-                        this.$http.post(`/kingcraft/alterPassword`,{ password:md5(this.password), email:this.email })
+                        this.$http.post(`/v2/alterPassword`,{ password:md5(this.password), email:this.email })
                             .then(result =>{
                                 if(result.data){
                                     this.step += 1

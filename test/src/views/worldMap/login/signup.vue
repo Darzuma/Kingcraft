@@ -15,8 +15,10 @@
             <input type="text" v-model="email" @change="emailWarning = ''">
             <div class="error" v-show="emailWarning">* {{ emailWarning }}</div>
         </div>
-        <div class="hint" @click="bus.type = 1" style="margin-bottom: 50px">
-            Already have an account? login here.
+        <div class="hint" @click="bus.type = 1" style="margin-bottom: 50px;">
+            <div class="text">
+                Already have an account? login here.
+            </div>
         </div>
         <footer>
             <div class="warningMessage">{{ warningMessage }}</div>
@@ -60,12 +62,10 @@ export default {
                 username: this.username,
                 password: md5(this.password),
                 email: this.email,
-                state: {
-                    money, troops, forces, rubies, zircons, mageBoxes, rank, maxCampaignLevel
-                }
+                money, troops, forces, rubies, zircons, mageBoxes, rank, maxCampaignLevel
             }
             this.bus.loading = true
-            this.$http.post('/kingcraft/signup',data).then(result => {
+            this.$http.post('/v2/signUp',data).then(result => {
                 if(result.data === 'success'){
                     Cookies.set('username', data.username,{ expires:30 })
                     Cookies.set('password', data.password,{ expires:30 })

@@ -58,12 +58,10 @@ export default {
             let data = {
                 username: this.username,
                 password: md5(this.password),
-                state: {
-                    money, troops, forces, rubies, zircons, mageBoxes, rank, maxCampaignLevel
-                }
+                money, troops, forces, rubies, zircons, mageBoxes, rank, maxCampaignLevel
             }
             this.bus.loading = true
-            this.$http.post('/kingcraft/signIn', data)
+            this.$http.post('/v2/signIn', data)
                 .then(result => {
                     if(result.data === 'invalid:username'){
                         this.usernameWarning = 'Username doest not exits.'

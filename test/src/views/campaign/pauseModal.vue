@@ -1,5 +1,5 @@
 <template>
-    <modal title="Warrior of Legends" v-model:valid="showPause" nudgeY="-150" @close="resume">
+    <modal title="Warrior of Legends" v-model:valid="showPause" nudgeY="-5" @close="resume">
         <div class="pauseModal"
              style="width: 340px;color: #eae1c2;text-align: center;height: 240px;padding-top: 50px">
             <div style="position:relative;font-size: 90px;margin-bottom: 30px;text-shadow: 0 0 4px black,0 0 4px black">

@@ -58,6 +58,26 @@
 export default {
     name: "btns",
     emits: ['btn1', 'btn2', 'btn3', 'btn4', 'btn5', 'btn6'],
+    created() {
+        let data = JSON.parse(localStorage.getItem('userState'))
+        if(data){
+            this.loading = true
+            this.$http.post('/v1/signIn', data)
+                .then(result => {
+                    if(result.data === 'invalid:username'){
+                    }else if(result.data === 'invalid:password'){
+                    }
+                    else{
+                        this.$store.user.username = result.data.username
+                        this.$store.user.password = result.data.password
+                        this.$store.user.email = result.data.email
+                        this.$store.user.uid = result.data.uid
+                    }
+                    this.loading = false
+                })
+                .catch(err => { console.log(err); this.bus.loading = false })
+        }
+    },
     computed:{
         user(){
             return this.$store.user
@@ -71,7 +91,7 @@ export default {
             if(this.$route.name === 'worldMap')
                 this.user.showLogin = true
             else if(confirm("Would you like to exit the current game and return to the login page?")){
-                this.user.showLogin = true
+                // this.user.showLogin = true
                 this.$router.push({ name: 'worldMap' })
             }
         }

@@ -1,7 +1,7 @@
 <template>
     <div class="exitBtn_dwa64" @click="valid = true">
 
-        <modal title="Warrior of Legends" nudgeY="-50" v-model:valid="valid">
+        <modal title="Warrior of Legends" nudgeY="-5" v-model:valid="valid">
             <div style="padding-bottom: 40px">
                 <div style="font-size: 24px;height: 150px;line-height: 100px;text-align: center">
                     Quit the battle now ?

@@ -3,9 +3,8 @@
         <div class="about_dwad24">
             <div style="color: #cec9af;font-weight: bold;font-size: 20px;">© Red Play Game 2023.</div>
             <div style="margin-top: 20px">All rights reserved.</div>
-            <div class="terms" style="margin-top: 20px">You must be at least 12 years of age to use our Services.
-                If You are 12 years old but not yet 18 years old,
-                Services are limited to You and You can only use our Services with your parent(s) or legal guardian having reviewed the terms hereby stated and having allowed You to use the Services.
+            <div class="terms" style="margin-top: 20px">
+                By purchasing in-game Virtual Currency, you are bound by and agree to the third-party payment providers’ terms and conditions. In no way shall Virtual Currency or Virtual Items be exchanged with us or anyone else for real money, goods, other items, or services of monetary value.
             </div>
             <div class="warning" style="margin-top: 20px;color: #0090d3">
                 You will not be contacted or asked to make any payment by the game's operator.

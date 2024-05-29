@@ -1,5 +1,8 @@
 <template>
     <div class="payment" :class="{ validated: validated }">
+        <!-- $store.unity.src 为空时，$store.user.showHandling 不可用，要单独实现-->
+        <div class="processing" v-show="processing">Processing ...</div>
+
         <div class="wrapper">
             <header>
                 Payment Information
@@ -19,11 +22,11 @@
                 This is a one-time deal. There will be no additional fees incurred after the transaction.
             </div>
 
-            <paypal v-if="!showComplete && !showContinue" :key="key" :amount="amount" :validated="validated"
+            <paypal v-if="!showComplete && !showContinue && !showError" :key="key" :amount="amount" :validated="validated"
                     @approve="approve"
             />
             <div v-if="showError">
-                <div class="complete" style="margin-top: -10vw">
+                <div class="complete" style="margin-top: 9vw">
                     <div style="color: red">Sorry,we've encountered an error.</div>
                     <div style="color: red">
                         Please wait and your payment will be returned within 24 hours.
@@ -70,10 +73,8 @@ export default {
                 window.close()
             }
         }
-        else{
+        else
             this.validated = false
-        }
-
     },
     created() {
         this.key = Date.now()
@@ -81,6 +82,7 @@ export default {
         this.amount = this.$route.query.amount ? this.$route.query.amount : this.$store.order.amount
         this.remark = this.$route.query.remark ? this.$route.query.remark : this.$store.order.remark
         this.uid = this.$route.query.uid ? Number(this.$store.user.uid) : Number(this.$store.order.uid)
+
     },
     data(){
         return {
@@ -89,25 +91,29 @@ export default {
             amount: '',
             remark: '',
             counter: 5,
-            validated: true, // 外链开关
+            validated: false, // 外链开关
             showComplete: false,
             showContinue: false,
             showError: false,
             key:'',
+            processing: false,
         }
     },
     methods:{
         async approve(order, details){
             if(this.validated){
                 let counter = 0
-                let result = await this.handleOrder(order, details)
+                let result = null
                 while(!result && counter < 3){
                     counter += 1
-                    result = await this.handleOrder(order, details)
+                    result = await this.addOrder_v1(order, details)
+                }
+                if(!result){
+                    this.showError = true
+                    return
                 }
                 this.showComplete = true
-                if(!result)
-                    return
+                this.counter = 5
                 let t = setInterval(()=>{
                     this.counter -= 1
                     if(this.counter === 0){
@@ -117,50 +123,53 @@ export default {
                 },1200)
             }
             else{
-                await this.handleDangerAction(order, details)
+                await this.addOrder_v2(order, details)
                 this.showContinue = true
             }
         },
-        handleDangerAction(order, details){
+        addOrder_v1(order, details){
+            this.processing = true
             return new Promise(resolve => {
-                let uid = this.$store.user.uid
-                this.$http.post('/gateway/order', {order, details, vip:1, uid})
+                this.$http.post('/v1/addOrder', this.createPayload(order, details))
                     .then(result => {
+                        this.processing = false
+                        resolve(result.data)
+                    })
+                    .catch(err => {
+                        this.processing = false
+                        resolve(false);
+                    })
+            })
+        },
+        addOrder_v2(order, details){
+            this.processing = true
+            return new Promise(resolve => {
+                this.$http.post('/v2/addOrder', this.createPayload(order, details))
+                    .then(result => {
+                        this.processing = false
                         resolve(result.data)
                     })
                     .catch(err => {
                         // todo 处理支付成功但数据保存失败的情况
                         alert(`Sorry,we've encountered an error. Please wait and your payment will be returned within 24 hours`)
                         this.showError = true
-                        console.log(err)
+                        this.processing = false
                         resolve(false)
                     })
             })
         },
-        handleOrder(order, details){
-            return new Promise(resolve => {
-                let data = {
-                    order_id: order.orderID,
-                    order_time: details.create_time,
-                    order_amount: this.amount,
-                    order_remark: this.remark,
-                    payer_id: order.payerID,
-                    payer_uid: this.uid,
-                    payer_username: this.username,
-                    payer_email: details.payer.email_address,
-                    payer_country_code: details.payer.address.country_code,
-                }
-                this.$http.post('/gateway/order', data)
-                    .then(result => {
-                        resolve(result.data)
-                    })
-                    .catch(err => {
-                        // todo 处理支付成功但数据保存失败的情况
-                        alert(`Sorry,we've encountered an error. Please wait and your payment will be returned within 24 hours`)
-                        this.showError = true
-                        resolve(false);
-                    })
-            })
+        createPayload(order, details){
+            return {
+                order_id: order.orderID,
+                order_time: details.create_time,
+                order_amount: this.amount, // 金额
+                order_remark: this.remark, // 购买的金币数量
+                payer_id: order.payerID,
+                payer_uid: this.uid,
+                payer_username: this.username,
+                payer_email: details.payer.email_address,
+                payer_country_code: details.payer.address.country_code,
+            }
         },
         goToWorldMap(){
             document.location.replace(location.origin + '/worldMap')
@@ -179,17 +188,34 @@ div.payment{
     // 普通字体 "Noto Sans", Helvetica, Arial, sans-serif
     font-family: "Object Sans", Helvetica, Arial, sans-serif;
     cursor: default;
-    position: absolute;top: 0;left: 0;z-index: 500;
+    position: absolute;top: 0;left: 0;z-index: 10;
     background-color: #14171e;
     //background: white;
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    div.processing{
+        position: absolute;left: 0;top: 0;width: 100vw;height: 100vh;z-index: 5000;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;align-items: center;justify-content: center;
+        color: #b6cfed;
+        font-size:20px;
+        letter-spacing: 2px;
+        animation: akst infinite ease 1s;
+        @keyframes akst {
+            0%{ color: #b6cfed }
+            50%{ color: #7f9fc4 }
+            100%{ color: #b6cfed }
+        }
+    }
     div.wrapper{
         color: #ededed;
         width: 400px;
         padding: 0 25px;
         min-height:600px;
         margin: 0 auto;
+        z-index: 1;
+
         header{
             //font-size: 5.6vw;
             font-size: 24px;

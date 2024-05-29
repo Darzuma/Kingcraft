@@ -77,7 +77,13 @@ export default {
 <style scoped lang="scss">
 div.list_dwad222145{
     width: 510px;height: 850px;
+    max-height: 80vh;
     padding-bottom: 25px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+        display: none;
+    }
     div.pendingBox{
         width: 100%;height: 100%;display: flex;align-items: center;justify-content: center;
     }

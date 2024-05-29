@@ -32,26 +32,7 @@ import Cookies from "js-cookie";
 export default {
     name: "login",
     components: { signin, signup, retrieve },
-    mounted() {
-        let data = JSON.parse(localStorage.getItem('userState'))
-        if(data){
-            this.loading = true
-            this.$http.post('/kingcraft/signIn', data)
-                .then(result => {
-                    if(result.data === 'invalid:username'){
-                    }else if(result.data === 'invalid:password'){
-                    }
-                    else{
-                        this.$store.user.username = result.data.username
-                        this.$store.user.password = result.data.password
-                        this.$store.user.email = result.data.email
-                        this.$store.user.uid = result.data.uid
-                    }
-                    this.loading = false
-                })
-                .catch(err => { console.log(err); this.bus.loading = false })
-        }
-    },
+
     data(){
         return {
             type: 1,
@@ -59,12 +40,15 @@ export default {
         }
     },
     watch:{
-        '$store.user.showLogin':function (val){
-            if(!val)
-                this.type = 1
-            // 处理输入控制开关
-            if(this.$store.unity.instance)
-                this.$store.unity.instance.SendMessage('GameManager', 'CaptureAllKeyboardInput', val ? "false" : "true")
+        '$store.user.showLogin':{
+            handler (val){
+                if(!val)
+                    this.type = 1
+                // 处理输入控制开关
+                if(this.$store.unity.instance)
+                    this.$store.unity.instance.SendMessage('GameManager', 'CaptureAllKeyboardInput', val ? "false" : "true")
+            },
+            immediate: true
         }
     },
     methods:{

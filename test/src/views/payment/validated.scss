@@ -2,6 +2,10 @@ div.payment.validated{
   border: 2px solid #b6cfed;
   border-right-width: 3px;
   border-radius: 20px;
+  div.processing{
+    padding-bottom: 14vh;
+    font-size: 5vw;
+  }
   div.wrapper{
     width: 100vw;
     padding: 0 14vw;

@@ -45,10 +45,9 @@ export default {
 
 <style scoped lang="scss">
 div.headbar{
-    position: absolute;left: 0;top: 0;
+    position: absolute;left: 0;top: 0;z-index: 5;
     height: 100%;width: 100%;
     pointer-events: none;
-
 }
 
 </style>
