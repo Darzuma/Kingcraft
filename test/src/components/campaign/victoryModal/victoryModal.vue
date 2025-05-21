@@ -1,6 +1,6 @@
 <template>
     <div class="victoryModal">
-        <modal title="Warrior of Legends" v-model:valid="showSuccess" noclose nudgeY="-150">
+        <modal title="Warrior of Legends" v-model:valid="showSuccess" noclose nudgeY="-1">
             <div class="success">
                 <div style="display: flex;justify-content: center;margin-top: 30px">
                     <img :src="victoryIcon" :style="{width:'160px'}">

@@ -32,7 +32,7 @@ export default {
             this.$store.unity.instance.SendMessage('GameManager','LoadScene','Level_1')
             this.troops = Number(this.$store.user.troops)
             document.title = 'Warrior of Legends'
-            document.querySelector("link[rel~='icon']").href = '/fav_icon.ico'
+            document.querySelector("link[rel~='icon']").href = '/favicon.png'
         })
 
         document.addEventListener('keydown',this.keydown)

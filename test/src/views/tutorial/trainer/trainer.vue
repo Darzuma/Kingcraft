@@ -158,9 +158,15 @@ export default {
                     this.$store.game.currentEnemy -= 1
                     clearInterval(t)
                 }
+                // 敌人波数
+                // if(index === 5){
+                //                     this.$store.game.currentEnemy -= 1
+                //                     clearInterval(t)
+                //                 }
             },8000)
             this.step += 1
         },
+        // 文本输出速度
         texting(txt){
             let len = txt.length
             let idx = 0
@@ -175,7 +181,7 @@ export default {
                     clearInterval(this.timer)
                     this.timer = null
                 }
-            },30)
+            },20)
         }
     }
 

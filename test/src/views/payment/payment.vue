@@ -19,7 +19,7 @@
             </div>
 
             <div class="note">
-                This is a one-time deal. There will be no additional fees incurred after the transaction.
+                This is a one-time purchase. There will be no additional fees incurred after the transaction.
             </div>
 
             <paypal v-if="!showComplete && !showContinue && !showError" :key="key" :amount="amount" :validated="validated"
