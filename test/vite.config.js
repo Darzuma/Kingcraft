@@ -3,45 +3,40 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
-// https://vitejs.dev/config/
-export default ({command, mode}) => {
-  // command 即 package.json 中的脚本名, mode 自动(development/production)
-  if (command === 'dev') {
+export default defineConfig(({command, mode}) => {
 
-  } else if (command === 'build') {
+  // const env = loadEnv(mode, process.cwd(), '')
+  // http://localhost:5173/
+  return {
+    plugins: [
+      vue({
 
-  }
-  let config = {
-    plugins: [vue()],
+      }),
+    ],
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url))
       },
-      // 忽略后缀名的配置选项, 添加 .vue 选项时要记得原本默认忽略的选项也要手动写入
-      extensions: ['.html', '.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue', '.scss']
+      extensions: ['.html', '.js', '.json', '.vue', '.scss']
     },
-    // define: { // 自定义全局变量
-    //     process: {
-    //       baseURL: {
-    //         development: 'http://localhost:3001',
-    //         production: 'http://xx.xx.xx.xx:3001'
-    //       }[mode],
-    //       dev: mode === 'development'
-    //   },
-    // },
-    // build:{
-    //   // 如果构建后无法使用，先尝试删除 rollupOptions
-    //   rollupOptions:{
-    //     input:'./index.html'
-    //   },
-    //   outDir:'./dist'
-    // },
+    define: {
+      __ENV:{
+        // 给 axios 用的
+        baseURL: {
+          serve:'http://localhost:6010',
+          build:'https://gateway.bmwistrek.com'
+        }[command],
+        clientId:{
+          serve:"AbMHs0nu25KCD3AwkdncMWHPokwp1u8Jo-ic5x4eraYTzOanvmEy_URg9YSwywnLg_JNtuzT_B9BB6vk",
+          build:"AbMHs0nu25KCD3AwkdncMWHPokwp1u8Jo-ic5x4eraYTzOanvmEy_URg9YSwywnLg_JNtuzT_B9BB6vk",
+          // build:"AcUgy3zJMciuMimL3DDemWLdXcEJ8lIiz4ZOJ8pd3S3Em-jwcBVrPi_LHo-BdQtem5shL-wqW3J6Y6L7"
+        }[command],
+      }
+    },
+    // 前端服务器
     server: {
-      host: '0.0.0.0',
-      port: 3000,
       open: '/',
-    },
+      port: '5175'
+    }
   }
-  return defineConfig(config)
-
-}
+})

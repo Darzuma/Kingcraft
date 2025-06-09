@@ -37,7 +37,7 @@
                                 <btn class="dwaok2" scale="0.6" @click="buyWithGold(0)">
                                     Buy with 25000 <icon size="15" />
                                 </btn>
-                                <btn scale="0.6" @click="goToPayment(19.9, 'Elite Supply Pack')">Buy with $19.9</btn>
+                                <btn scale="0.6" @click="goToPayment(15.0, 'Elite Supply Pack')">Buy with $15.0</btn>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                             </div>
                             <div class="btnBox">
                                 <div style="width: 152px;"> </div>
-                                <btn scale="0.6" @click="goToPayment(19.9, 'Elite Gold Pack')">Buy with $19.9</btn>
+                                <btn scale="0.6" @click="goToPayment(15.0, 'Elite Gold Pack')">Buy with $15.0</btn>
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                                 <btn class="dwaok2" scale="0.6" @click="buyWithGold(2)">
                                     Buy with 2000 <icon size="15" />
                                 </btn>
-                                <btn scale="0.6" @click="goToPayment(2.9, 'Small Food Pack')">Buy with $2.9</btn>
+                                <btn scale="0.6" @click="goToPayment(3.0, 'Small Food Pack')">Buy with $3.0</btn>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                                 <btn class="dwaok2" scale="0.6" @click="buyWithGold(3)">
                                     Buy with 2000 <icon size="15" />
                                 </btn>
-                                <btn scale="0.6" @click="goToPayment(2.9, 'Small Brewing Pack')">Buy with $2.9</btn>
+                                <btn scale="0.6" @click="goToPayment(3.0, 'Small Brewing Pack')">Buy with $3.0</btn>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                                 <btn class="dwaok2" scale="0.6" @click="buyWithGold(4)">
                                     Buy with 3000 <icon size="15" />
                                 </btn>
-                                <btn scale="0.6" @click="goToPayment(2.9, 'Small Forge Pack')">Buy with $2.9</btn>
+                                <btn scale="0.6" @click="goToPayment(3.0, 'Small Forge Pack')">Buy with $3.0</btn>
                             </div>
                         </div>
                     </div>
@@ -151,7 +151,7 @@
                                 <btn class="dwaok2" scale="0.6" @click="buyWithGold(5)">
                                     Buy with 3000 <icon size="15" />
                                 </btn>
-                                <btn scale="0.6" @click="goToPayment(2.9, 'Small Alchemy Pack')">Buy with $2.9</btn>
+                                <btn scale="0.6" @click="goToPayment(3.0, 'Small Alchemy Pack')">Buy with $3.0</btn>
                             </div>
                         </div>
                     </div>
@@ -174,7 +174,7 @@
                                 <btn class="dwaok2" scale="0.6" @click="buyWithGold(6)">
                                     Buy with 5000 <icon size="15" />
                                 </btn>
-                                <btn scale="0.6" @click="goToPayment(2.9, 'Small Academy Pack')">Buy with $2.9</btn>
+                                <btn scale="0.6" @click="goToPayment(3.0, 'Small Academy Pack')">Buy with $3.0</btn>
                             </div>
                         </div>
                     </div>
@@ -197,7 +197,7 @@
                                 <btn class="dwaok2" scale="0.6" @click="buyWithGold(7)">
                                     Buy with 5000 <icon size="15" />
                                 </btn>
-                                <btn scale="0.6" @click="goToPayment(2.9, 'Small Armament Pack')">Buy with $2.9</btn>
+                                <btn scale="0.6" @click="goToPayment(3.0, 'Small Armament Pack')">Buy with $3.0</btn>
                             </div>
                         </div>
                     </div>

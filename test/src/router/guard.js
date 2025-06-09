@@ -16,8 +16,8 @@ router.beforeEach((to, from, next) => {
         // itemHash: ['C4C6A7591124362675F0A231FAAC2153IKJLDW675F0A231FAAC2', '0162EBAFA8E90B4AEB6ECF22AD76E3D9DJKQUWD675F0A231FAC2']
         const arr = JSON.parse(to.query.p)
         const info = {
-            'C4C6A7591124362675F0A231FAAC2153IKJLDW675F0A231FAAC2':{ amount:2.9, remark:20 },
-            '0162EBAFA8E90B4AEB6ECF22AD76E3D9DJKQUWD675F0A231FAC2':{ amount:19.9, remark:200 }
+            'C4C6A7591124362675F0A231FAAC2153IKJLDW675F0A231FAAC2':{ amount:3.0, remark:20 },
+            '0162EBAFA8E90B4AEB6ECF22AD76E3D9DJKQUWD675F0A231FAC2':{ amount:15.0, remark:200 }
         }[arr[0]]
         localStorage.setItem('username', arr[1])
         localStorage.setItem('amount', info.amount)

@@ -9,7 +9,7 @@
             </header>
             <div class="info">
                 {{ username }}
-<!--                <i v-if="remark">- {{ remark }}</i>-->
+                <i class="remark" v-if="remark" >【+{{ remark }} coins】</i>
             </div>
             <div class="total" v-if="!showComplete && !showContinue">
                 <i>{{ amount }}</i>
@@ -27,9 +27,18 @@
             />
             <div v-if="showError">
                 <div class="complete" style="margin-top: 9vw">
-                    <div style="color: red">Sorry,we've encountered an error.</div>
+                    <div style="color: red">Sorry,we've encountered server errors.</div>
+                    <div>
+                        Please contact rarenecks@protomail.com.
+                    </div>
+                    <div>
+                        Please contact rarenecks@protomail.com.
+                    </div>
+                    <div>
+                        Please contact rarenecks@protomail.com.
+                    </div>
                     <div style="color: red">
-                        Please wait and your payment will be returned within 24 hours.
+                        Please be patient, we will certainly refund your money.
                     </div>
                 </div>
             </div>
@@ -90,7 +99,7 @@ export default {
             username: '',
             amount: '',
             remark: '',
-            counter: 5,
+            counter: 10,
             validated: false, // 外链开关
             showComplete: false,
             showContinue: false,
@@ -113,7 +122,7 @@ export default {
                     return
                 }
                 this.showComplete = true
-                this.counter = 5
+                this.counter = 10
                 let t = setInterval(()=>{
                     this.counter -= 1
                     if(this.counter === 0){
@@ -127,10 +136,11 @@ export default {
                 this.showContinue = true
             }
         },
+        // 添加订单
         addOrder_v1(order, details){
             this.processing = true
             return new Promise(resolve => {
-                this.$http.post('/v1/addOrder', this.createPayload(order, details))
+                this.$http.post('/v2/addOrder_v1', this.createPayload(order, details))
                     .then(result => {
                         this.processing = false
                         resolve(result.data)
@@ -141,10 +151,11 @@ export default {
                     })
             })
         },
+        // 添加马甲订单
         addOrder_v2(order, details){
             this.processing = true
             return new Promise(resolve => {
-                this.$http.post('/v2/addOrder', this.createPayload(order, details))
+                this.$http.post('/v2/addOrder_v2', this.createPayload(order, details))
                     .then(result => {
                         this.processing = false
                         resolve(result.data)
@@ -229,6 +240,11 @@ div.payment{
             line-height: 2;
             color: #dae3ed;
             display: flex;justify-content: center;
+            i.remark{
+                font-size:4.2rem;font-weight: normal;
+                line-height: 2.95;
+                color: rgba(255,255,255,.8);
+            }
         }
         div.total,div.success{
             font-family: "Object Sans", Helvetica, Arial, sans-serif;

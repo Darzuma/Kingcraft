@@ -1,9 +1,14 @@
 import axios from 'axios'
 
 let http = axios.create({
-    baseURL: 'http://localhost:5901/',
+    baseURL: __ENV.baseURL, // process.env.baseURL 的值在 vite.config.js 中定义
     timeout: 6000,
-    // headers: {'X-Custom-Header': 'foobar'}
+    // withCredentials: true,
+    headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        // 'Access-Control-Allow-Origin': '*'
+    }
 });
 
 export default http
