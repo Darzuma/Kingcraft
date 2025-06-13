@@ -62,19 +62,19 @@
 </template>
 
 <script>
-import testContainer from "./testContainer";
+// import testContainer from "./testContainer";
 import paypal from '@/components/paypal'
 
 export default {
     name: "checkout",
-    components: { testContainer, paypal },
+    components: { paypal },
     mounted() {
         // 处理外链付款
         if(this.$store.order.username && this.$store.order.amount){
 
             this.validated = true
             // 处理页面标题和图标
-            document.title = '\u205fPayment by Paypal'
+            document.title = '\u205fPayment with Paypal'
             document.querySelector("link[rel~='icon']").href = '/pay4.png'
 
             // 防止恶意刷新丢失付款数据

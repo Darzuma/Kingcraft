@@ -10,7 +10,7 @@
                 You will not be contacted or asked to make any payment by the game's operator.
             </div>
             <div class="contacts" style="margin-top: 40px;font-size: 18px;color: #cec9af">
-                Contact mail : redplaygame77@gmail.com
+                Contact mail : bmwistrek36@gmail.com
             </div>
         </div>
     </modal>

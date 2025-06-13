@@ -20,9 +20,10 @@ export default {
                     return actions.order.create({
                         purchase_units: [
                             {
+                                intent: "CAPTURE",
                                 amount: {
                                     currency_code: "USD", // 币种 String
-                                    value: self.amount.toString(), // 金额 String
+                                    value: self.amount, // 金额 String
                                 },
                             },
                         ],

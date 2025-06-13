@@ -33,9 +33,9 @@ export default {
     },
     created() {
         if(!this.$store.unity.src)
-            this.$store.unity.src = '/unity/Kingcraft'
+            this.$store.unity.src = 'https://res.bmwistrek.com/Kingcraft'
         this.$store.game.onStart.push(()=>{
-            document.title = 'Warrior of Legends'
+            // document.title = 'Warrior of Legends'
             document.querySelector("link[rel~='icon']").href = '/fav_icon.ico'
 
             this.$store.unity.instance.SendMessage('GameManager', 'LoadScene', 'WorldMap')

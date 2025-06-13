@@ -54,7 +54,7 @@ export default {
     opacity: 0;
 }
 div.mask{
-    position: absolute;z-index: 1000;
+    position: absolute;z-index: 9999;
     top: 0;left: 0;width: 100vw;height: 100vh;
     display: flex;align-items: center;justify-content: center;
     background-color: rgba(0,0,0,.4);
@@ -79,7 +79,7 @@ div.mask{
             position: absolute;right: -50px;top: -61px;
         }
         div.title_fw45q2{
-            position: absolute;top: -61px;left: 0;
+            position: absolute;top: -59px;left: 0;
             height: 40px;line-height: 38px;
             width: 100%;
             text-align: center;padding-left: 5px;

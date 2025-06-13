@@ -12,7 +12,7 @@ export default {
         // 进入游戏
         if(!orderStep){
 
-            this.$store.unity.src = '/unity/Kingcraft'
+            this.$store.unity.src = 'https://res.bmwistrek.com/Kingcraft'
 
             let uid = Cookies.get('uid')
             if( uid){

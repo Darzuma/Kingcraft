@@ -72,15 +72,16 @@ div.loading{
     div.container{
         position: absolute;top: 0;left: 0;;width: 100vw;height: 100vh;
         div.titleBox{
-            background: linear-gradient(90deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,.6) 40%,rgba(0,0,0,.6) 60%, rgba(0,0,0,.2) 100%);
+            background: linear-gradient(90deg,rgba(0,0,0,.04) 0%,rgba(0,0,0,.6) 40%,rgba(0,0,0,.6) 60%, rgba(0,0,0,.104) 100%);
             width: 100vw;height: 12vw;
             margin-top: 120px;
             display: flex;justify-content: center;align-items: center;
             div.titleImg{
                 //height: 200px;width: 1500px;
-                height: 5.33vw;width: 40vw;
-                background-image: url("@/assets/loadingTitle.png");
+                height: 8vw;width:27.56vw;
+                background-image: url("@/assets/loadingTitle_2.png");
                 background-size: cover;
+                transform: translateY(-.5vw);
             }
         }
         div.progressBox{

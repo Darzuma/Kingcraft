@@ -170,6 +170,7 @@ div.puzzle{
     pointer-events: none;
     opacity: 0;
     display: flex;align-items: center;justify-content: start;flex-direction: column;
+
     &.valid{
         pointer-events: auto;
         opacity: 1;
@@ -177,7 +178,6 @@ div.puzzle{
     div.puzzleBox{
         position: relative;z-index: 5;margin-top: 220px;
         div.pipePuzzle{
-
         }
         div.closeBtn{
             position: absolute;top: 5px;right: 3px;z-index: 10;transform: scale(.84);filter: brightness(1.3)

@@ -31,7 +31,7 @@ export default {
         this.$store.game.onStart.push(()=>{
             this.$store.unity.instance.SendMessage('GameManager','LoadScene','Level_1')
             this.troops = Number(this.$store.user.troops)
-            document.title = 'Warrior of Legends'
+            // document.title = 'Warrior of Legends'
             document.querySelector("link[rel~='icon']").href = '/favicon.png'
         })
 

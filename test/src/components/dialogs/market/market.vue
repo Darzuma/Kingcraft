@@ -37,7 +37,7 @@
                                 <btn class="dwaok2" scale="0.6" @click="buyWithGold(0)">
                                     Buy with 25000 <icon size="15" />
                                 </btn>
-                                <btn scale="0.6" @click="goToPayment(15.0, 'Elite Supply Pack')">Buy with $15.0</btn>
+                                <btn scale="0.6" @click="goToPayment(15.00, 'Elite Supply Pack')">Buy with $15.00</btn>
                             </div>
                         </div>
                     </div>
@@ -59,7 +59,7 @@
                             </div>
                             <div class="btnBox">
                                 <div style="width: 152px;"> </div>
-                                <btn scale="0.6" @click="goToPayment(15.0, 'Elite Gold Pack')">Buy with $15.0</btn>
+                                <btn scale="0.6" @click="goToPayment(price_2, 'Elite Gold Pack')">Buy with ${{ price_2 }}</btn>
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                                 <btn class="dwaok2" scale="0.6" @click="buyWithGold(2)">
                                     Buy with 2000 <icon size="15" />
                                 </btn>
-                                <btn scale="0.6" @click="goToPayment(3.0, 'Small Food Pack')">Buy with $3.0</btn>
+                                <btn scale="0.6" @click="goToPayment(price_1, 'Small Food Pack')">Buy with ${{ price_1 }}</btn>
                             </div>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
                                 <btn class="dwaok2" scale="0.6" @click="buyWithGold(3)">
                                     Buy with 2000 <icon size="15" />
                                 </btn>
-                                <btn scale="0.6" @click="goToPayment(3.0, 'Small Brewing Pack')">Buy with $3.0</btn>
+                                <btn scale="0.6" @click="goToPayment(price_1, 'Small Brewing Pack')">Buy with ${{ price_1 }}</btn>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                                 <btn class="dwaok2" scale="0.6" @click="buyWithGold(4)">
                                     Buy with 3000 <icon size="15" />
                                 </btn>
-                                <btn scale="0.6" @click="goToPayment(3.0, 'Small Forge Pack')">Buy with $3.0</btn>
+                                <btn scale="0.6" @click="goToPayment(price_1, 'Small Forge Pack')">Buy with ${{ price_1 }}</btn>
                             </div>
                         </div>
                     </div>
@@ -151,7 +151,7 @@
                                 <btn class="dwaok2" scale="0.6" @click="buyWithGold(5)">
                                     Buy with 3000 <icon size="15" />
                                 </btn>
-                                <btn scale="0.6" @click="goToPayment(3.0, 'Small Alchemy Pack')">Buy with $3.0</btn>
+                                <btn scale="0.6" @click="goToPayment(price_1, 'Small Alchemy Pack')">Buy with ${{ price_1 }}</btn>
                             </div>
                         </div>
                     </div>
@@ -174,7 +174,7 @@
                                 <btn class="dwaok2" scale="0.6" @click="buyWithGold(6)">
                                     Buy with 5000 <icon size="15" />
                                 </btn>
-                                <btn scale="0.6" @click="goToPayment(3.0, 'Small Academy Pack')">Buy with $3.0</btn>
+                                <btn scale="0.6" @click="goToPayment(price_1, 'Small Academy Pack')">Buy with ${{ price_1 }}</btn>
                             </div>
                         </div>
                     </div>
@@ -197,7 +197,7 @@
                                 <btn class="dwaok2" scale="0.6" @click="buyWithGold(7)">
                                     Buy with 5000 <icon size="15" />
                                 </btn>
-                                <btn scale="0.6" @click="goToPayment(3.0, 'Small Armament Pack')">Buy with $3.0</btn>
+                                <btn scale="0.6" @click="goToPayment(price_1, 'Small Armament Pack')">Buy with ${{ price_1 }}</btn>
                             </div>
                         </div>
                     </div>
@@ -219,6 +219,9 @@ export default {
     name: "market",
     data(){
         return {
+            // 一定要是字符串，并且保留两位小数，否则 Paypal 生产环境中会报错
+            price_1: "3.00",
+            price_2: "15.00",
             timer: null,
             showConfirm: false,
             amount:'',
@@ -245,9 +248,17 @@ export default {
             })
         },
         goToPayment(amount, remark){
+            if(this.$store.user.username){
+                [this.amount, this.remark] = [amount, '']
+                this.showConfirm = true
+            }
+            else{
+                this.$store.user.showMarket = false
+                this.$store.user.showLogin = true
+            }
+
             // [this.amount, this.remark] = [amount, remark]
-            [this.amount, this.remark] = [amount, '']
-            this.showConfirm = true
+
         },
         go(){
             this.$handle(()=>{

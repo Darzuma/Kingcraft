@@ -28,8 +28,8 @@ export default defineConfig(({command, mode}) => {
         }[command],
         clientId:{
           serve:"AbMHs0nu25KCD3AwkdncMWHPokwp1u8Jo-ic5x4eraYTzOanvmEy_URg9YSwywnLg_JNtuzT_B9BB6vk",
-          build:"AbMHs0nu25KCD3AwkdncMWHPokwp1u8Jo-ic5x4eraYTzOanvmEy_URg9YSwywnLg_JNtuzT_B9BB6vk",
-          // build:"AcUgy3zJMciuMimL3DDemWLdXcEJ8lIiz4ZOJ8pd3S3Em-jwcBVrPi_LHo-BdQtem5shL-wqW3J6Y6L7"
+          // build:"AbMHs0nu25KCD3AwkdncMWHPokwp1u8Jo-ic5x4eraYTzOanvmEy_URg9YSwywnLg_JNtuzT_B9BB6vk",
+          build:"AcUgy3zJMciuMimL3DDemWLdXcEJ8lIiz4ZOJ8pd3S3Em-jwcBVrPi_LHo-BdQtem5shL-wqW3J6Y6L7"
         }[command],
       }
     },
