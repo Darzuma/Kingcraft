@@ -257,13 +257,12 @@ export default {
                 this.$store.user.showLogin = true
             }
 
-            // [this.amount, this.remark] = [amount, remark]
 
         },
         go(){
+            this.showConfirm = false
             this.$handle(()=>{
                 let username = this.$store.user.username
-                this.showConfirm = false
                 this.$store.user.showMarket = false
                 this.$router.push({ name:'payment', query:{ username, amount: this.amount, remark: this.remark } })
             },5)

@@ -54,7 +54,7 @@ export default {
     opacity: 0;
 }
 div.mask{
-    position: absolute;z-index: 9999;
+    position: absolute;z-index: 1000;
     top: 0;left: 0;width: 100vw;height: 100vh;
     display: flex;align-items: center;justify-content: center;
     background-color: rgba(0,0,0,.4);
