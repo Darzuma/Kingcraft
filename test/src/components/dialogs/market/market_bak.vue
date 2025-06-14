@@ -220,8 +220,8 @@ export default {
     data(){
         return {
             // 一定要是字符串，并且保留两位小数，否则 Paypal 生产环境中会报错
-            price_1: "1.00",
-            price_2: "1.00",
+            price_1: "3.00",
+            price_2: "15.00",
             timer: null,
             showConfirm: false,
             amount:'',
@@ -248,25 +248,22 @@ export default {
             })
         },
         goToPayment(amount, remark){
-            [this.amount, this.remark] = [amount, '']
-            this.showConfirm = true
-            // if(this.$store.user.username){
-            //     [this.amount, this.remark] = [amount, '']
-            //     this.showConfirm = true
-            // }
-            // else{
-            //     this.$store.user.showMarket = false
-            //     this.$store.user.showLogin = true
-            // }
+            if(this.$store.user.username){
+                [this.amount, this.remark] = [amount, '']
+                this.showConfirm = true
+            }
+            else{
+                this.$store.user.showMarket = false
+                this.$store.user.showLogin = true
+            }
         },
         go(){
             this.showConfirm = false
             this.$handle(()=>{
-                // let username = this.$store.user.username
-                let username = 'aaaa'
+                let username = this.$store.user.username
                 this.$store.user.showMarket = false
                 this.$router.push({ name:'payment', query:{ username, amount: this.amount, remark: this.remark } })
-            },1)
+            },5)
         },
     }
 }

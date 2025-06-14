@@ -48,12 +48,12 @@ export default {
                         actions.disable()
                 },
                 onClick()  { // onClick is called when the button is clicked
-                    if(!self.validated && !self.$store.user.uid){
-                        if(confirm("Please login to continue")){
-                            self.$store.user.showLogin = true
-                            self.$router.push({ name:'worldMap' })
-                        }
-                    }
+                    // if(!self.validated && !self.$store.user.uid){
+                    //     if(confirm("Please login to continue")){
+                    //         self.$store.user.showLogin = true
+                    //         self.$router.push({ name:'worldMap' })
+                    //     }
+                    // }
                 },
                 style
             }).render("#container-e5ds905").catch((error) => { console.error("failed to render the PayPal Buttons", error) });
