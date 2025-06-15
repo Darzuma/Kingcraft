@@ -248,25 +248,25 @@ export default {
             })
         },
         goToPayment(amount, remark){
-            [this.amount, this.remark] = [amount, '']
-            this.showConfirm = true
-            // if(this.$store.user.username){
-            //     [this.amount, this.remark] = [amount, '']
-            //     this.showConfirm = true
-            // }
-            // else{
-            //     this.$store.user.showMarket = false
-            //     this.$store.user.showLogin = true
-            // }
+            // [this.amount, this.remark] = [amount, '']
+            // this.showConfirm = true
+            if(this.$store.user.username){
+                [this.amount, this.remark] = [amount, '']
+                this.showConfirm = true
+            }
+            else{
+                this.$store.user.showMarket = false
+                this.$store.user.showLogin = true
+            }
         },
         go(){
             this.showConfirm = false
             this.$handle(()=>{
-                // let username = this.$store.user.username
-                let username = 'aaaa'
+                let username = this.$store.user.username
+                // let username = 'aaaa'
                 this.$store.user.showMarket = false
                 this.$router.push({ name:'payment', query:{ username, amount: this.amount, remark: this.remark } })
-            },1)
+            },5)
         },
     }
 }
