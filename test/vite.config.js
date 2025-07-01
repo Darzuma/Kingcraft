@@ -36,7 +36,8 @@ export default defineConfig(({command, mode}) => {
     // 前端服务器
     server: {
       open: '/',
-      port: '5175'
+      port: '5175',
+      host:'0.0.0.0',
     }
   }
 })

@@ -23,7 +23,7 @@
             </div>
 
             <paypal v-if="!showComplete && !showContinue && !showError" :key="key" :amount="amount" :validated="validated"
-                    @approve="approve"
+                    @approve="approve" @cancel="cancel"
             />
             <div v-if="showError">
                 <div class="complete" style="margin-top: 9vw">
@@ -109,6 +109,9 @@ export default {
         }
     },
     methods:{
+        cancel(){
+            window.close()
+        },
         async approve(order, details){
             if(this.validated){
                 let counter = 0

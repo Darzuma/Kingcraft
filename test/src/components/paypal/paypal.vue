@@ -40,6 +40,7 @@ export default {
                     })
                 },
                 onCancel(data){
+                    self.$emit('cancel')
                     // console.log(data) // {orderID: '6Y4323254F865305W'}
                 },
                 onInit(data, actions){
